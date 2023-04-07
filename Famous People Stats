@@ -1,0 +1,28 @@
+In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists.
+
+
+
+CREATE TABLE authors (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, nationality TEXT);
+INSERT INTO authors (name, age, nationality) VALUES ("Colleen Hoover", 43, "US");
+INSERT INTO authors (name, age, nationality) VALUES ("Holly Jackson", 31, "UK");
+INSERT INTO authors (name, age, nationality) VALUES ("Karen McManus", 53, "US");
+INSERT INTO authors (name, age, nationality) VALUES ("Gillian FLynn", 52, "US");
+INSERT INTO authors (name, age, nationality)
+VALUES ("Sarah Maas", 37, "US");
+INSERT INTO authors (name, age, nationality) VALUES ("JK Rowling", 57, "UK");
+
+CREATE TABLE books (id INTEGER PRIMARY KEY AUTOINCREMENT, author_id INTEGER, books_written INTEGER, genre TEXT);
+INSERT INTO books (author_id, books_written, genre) VALUES (1, 26, "Romance");
+INSERT INTO books (author_id, books_written, genre) VALUES (2, 7, "Young Adult");
+INSERT INTO books (author_id, books_written, genre) VALUES (3,7, "Young Adult");
+INSERT INTO books (author_id, books_written, genre) VALUES (4,5, "Thriller");
+INSERT INTO books (author_id, books_written, genre) VALUES (5, 23, "Fantasy");
+INSERT INTO books (author_id, books_written, genre) VALUES (6, 23, "Fantasy");
+
+
+/*author's genre*/
+
+SELECT a.name, b.genre
+FROM authors a
+JOIN books b
+ON a.id = b.author_id;
